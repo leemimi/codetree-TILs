@@ -1,6 +1,6 @@
 n,m = map(int, input().split())
-posA = [0]*10001
-posB = [0]*10001
+posA = [0]*1000000
+posB = [0]*1000000
 time = 1
 for _ in range(n):
     v,t = map(int, input().split())
