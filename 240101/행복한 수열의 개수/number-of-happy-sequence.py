@@ -10,10 +10,10 @@ for i in range(n):
     if cnt >= m :
         res +=1
 
-for i in range(n-1):
+for i in range(n):
     cnt = 0
-    for j in range(n):
-        if arr[j][i] == arr[j][i+1]:
+    for j in range(n-1):
+        if arr[j][i] == arr[j+1][i]:
             cnt+=2
     if cnt>=m:
         res+=1
