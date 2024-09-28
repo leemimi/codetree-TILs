@@ -19,10 +19,10 @@ while value < k:
             if q[i+1] <=0:
                 value +=1
 
-    if people[n-1] >0:
-        people[n-1] = 0
+    if p[n-1] >0:
+        p[n-1] = 0
 
-    if q[0] > 0 and people[0] == 0:
+    if q[0] > 0 and p[0] == 0:
         p[0] = 1
         q[0] -=1
         if q[0] <=0:
