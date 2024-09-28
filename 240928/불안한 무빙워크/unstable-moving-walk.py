@@ -23,7 +23,7 @@ while value < k:
     if p[n-1] > 0:
         p[n-1] = 0
 
-    if q[0] > 0 and p[0] == 0:
+    if q[0]:
         p[0] = 1
         q[0] -=1
         if q[0] ==0:
