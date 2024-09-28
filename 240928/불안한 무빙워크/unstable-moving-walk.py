@@ -7,8 +7,8 @@ value = 0
 answer = 0
 
 while value < k:
-    q.rotate(1)
-    p.rotate(1)
+    q.appendleft(q.pop())
+    p.appendleft(p.pop())
     if p[n-1] > 0:
         p[n-1] = 0
 
