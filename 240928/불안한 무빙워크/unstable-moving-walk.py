@@ -22,14 +22,12 @@ while value < k:
             p[i]= 0
             q[i+1] -=1
             if q[i+1] <=0:
-                q[i+1] = 0
                 value +=1
 
     if q[0] > 0 and people[0] == 0:
         p[0] +=1
         q[0] -=1
         if q[0] <=0:
-            q[0] = 0
             value+=1
     answer+=1
 
