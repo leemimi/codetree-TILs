@@ -13,7 +13,7 @@ while value < k:
         p[n-1] = 0
 
     for i in range(n-1, 0, -1):
-        if p[i] == 0 and p[i-1] > 0 and q[i-1]>0:
+        if p[i] == 0 and p[i-1] > 0 and q[i]>0:
             p[i] = 1
             p[i-1]=0
             q[i] -=1
