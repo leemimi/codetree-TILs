@@ -1,9 +1,8 @@
 from collections import deque
 n, k = map(int, input().split())
 arr = list(map(int, input().split()))
-people = [0]*len(arr)
 q = deque(arr)
-p = deque(people)
+p = deque([0 for i in range(2 * n)])
 value = 0
 answer = 0
 
