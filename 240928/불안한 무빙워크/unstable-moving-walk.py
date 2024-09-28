@@ -7,8 +7,6 @@ p = deque(people)
 value = 0
 answer = 0
 
-
-now = 0
 while value < k:
     q.rotate(1)
     p.rotate(1)
@@ -25,7 +23,7 @@ while value < k:
                 value +=1
 
     if q[0] > 0 and people[0] == 0:
-        p[0] +=1
+        p[0] = 1
         q[0] -=1
         if q[0] <=0:
             value+=1
