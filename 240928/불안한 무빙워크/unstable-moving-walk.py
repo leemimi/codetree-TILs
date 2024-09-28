@@ -9,7 +9,7 @@ answer = 0
 
 
 now = 0
-while value <= k:
+while value < k:
     q.rotate(1)
     p.rotate(1)
 
