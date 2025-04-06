@@ -29,7 +29,7 @@ def push_unit(start, dir):
     damage = [0]*(M+1)
     
     q.append(start)
-    pset.add(start)
+    p_set.add(start)
     while q:
         x = q.popleft()
         ci,cj,h,w,k = units[x]
@@ -44,7 +44,7 @@ def push_unit(start, dir):
                     damage[x] +=1
         
         for ids in units:
-            if ids in pset: continue
+            if ids in p_set: continue
             ti,tj,th,tw,tk = units[ids]
 
             #겹치는 경우
