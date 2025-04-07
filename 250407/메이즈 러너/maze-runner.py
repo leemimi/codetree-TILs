@@ -19,27 +19,7 @@ for p in range(m):
 #출구
 arr[ex][ey] = -11
 
-def go_people():
-    global ex,ey,answer,arr,cnt
-    tmp = [x[:] for x in arr]
-    for i in range(n):
-        for j in range(n):
-            if -11 <arr[i][j]<0:
-                dist = abs(ex-i) + abs(ey-j)
-                for di,dj in ((-1,0),(1,0),(0,1),(0,-1)):
-                    nx = i+di
-                    ny = j +dj
-                    if 0<=nx<n and 0<=ny<n and arr[nx][ny]<=0 and dist>(abs(ex-nx)+abs(ey-ny)):
-                        answer += arr[i][j]
-                        tmp[i][j] -= arr[i][j]
-                        if arr[nx][ny] == -11:
-                            cnt+=1
-                        else:
-                            tmp[nx][ny]+=arr[i][j]
-                        break
-    arr = tmp
 
-    
 #한명이상 참가자와 정사각형 찾기
 def find_square(arr):
     global ex,ey
@@ -69,7 +49,23 @@ def find_exit():
 
 for _ in range(K):
     #참가자들 이동
-    go_people()
+    tmp = [x[:] for x in arr]
+    for i in range(n):
+        for j in range(n):
+            if -11 <arr[i][j]<0:
+                dist = abs(ex-i) + abs(ey-j)
+                for di,dj in ((-1,0),(1,0),(0,1),(0,-1)):
+                    nx = i+di
+                    ny = j +dj
+                    if 0<=nx<n and 0<=ny<n and arr[nx][ny]<=0 and dist>(abs(ex-nx)+abs(ey-ny)):
+                        answer += arr[i][j]
+                        tmp[i][j] -= arr[i][j]
+                        if arr[nx][ny] == -11:
+                            cnt+=1
+                        else:
+                            tmp[nx][ny]+=arr[i][j]
+                        break
+    arr = tmp
 
     if cnt == m:
         break
