@@ -25,12 +25,12 @@ def find_square(arr):
     for i in range(n):
         for j in range(n):
             if -11<arr[i][j]<0:     # 사람인 경우
-                mn=min(mn, max(abs(ei-i), abs(ej-j)))
+                mn=min(mn, max(abs(ex-i), abs(ey-j)))
 
     # [2] (0,0)부터 순회하면서 길이 L인 정사각형에 비상구와 사람있는지 체크 => 리턴 L+1
     for si in range(n-mn):
         for sj in range(n-mn):                  # 가능한 모든 시작위치
-            if si<=ei<=si+mn and sj<=ej<=sj+mn: # 비상구가 포함된 사각형!
+            if si<=ex<=si+mn and sj<=ey<=sj+mn: # 비상구가 포함된 사각형!
                 for i in range(si, si+mn+1):
                     for j in range(sj, sj+mn+1):
                         if -11<arr[i][j]<0:     # 사람인 경우 리턴!
