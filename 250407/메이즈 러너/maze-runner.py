@@ -1,20 +1,14 @@
 from collections import deque
 n,m,K = map(int, input().split())
 arr = [list(map(int, input().split()))for _ in range(n)]
-people = [list(map(int, input().split()))for _ in range(m)]
-ex, ey = map(int, input().split())
-ex -=1
-ey -=1
 answer = 0
 cnt = m
-
+for _ in range(M):
+    i, j = map(lambda x:int(x)-1, input().split())
+    arr[i][j]-=1 
 #좌표 맞춰주기
+ex,ey=map(lambda x:int(x)-1, input().split())
 
-for p in range(m):
-    people[p][0] -=1
-    people[p][1] -=1
-    arr[people[p][0]][people[p][1]] -= 1
-#출구
 arr[ex][ey] = -11
 
 
