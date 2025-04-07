@@ -6,9 +6,8 @@ ex, ey = map(int, input().split())
 ex -=1
 ey -=1
 answer = 0
-sx,sy = 0,0
 lens = n*n
-cnt = 0
+cnt = m
 
 #좌표 맞춰주기
 
@@ -43,8 +42,6 @@ def find_exit():
     for i in range(n):
         for j in range(n):
             if arr[i][j] == -11:
-                ex = i
-                ey = j
                 return i,j
 
 for _ in range(K):
@@ -61,13 +58,13 @@ for _ in range(K):
                         answer += arr[i][j]
                         tmp[i][j] -= arr[i][j]
                         if arr[nx][ny] == -11:
-                            cnt+=1
+                            cnt-=1
                         else:
                             tmp[nx][ny]+=arr[i][j]
                         break
     arr = tmp
 
-    if cnt == m:
+    if cnt == 0:
         break
 
     a,b,lens = find_square(arr)
