@@ -6,7 +6,6 @@ ex, ey = map(int, input().split())
 ex -=1
 ey -=1
 answer = 0
-lens = n*n
 cnt = m
 
 #좌표 맞춰주기
@@ -21,22 +20,21 @@ arr[ex][ey] = -11
 
 #한명이상 참가자와 정사각형 찾기
 def find_square(arr):
-    global ex,ey
-
-    #1.사람과 탈출구간의 짧은 거리를 구함
-    min_len = n
+    # [1] 비상구와 모든 사람간의 가장짧은 가로 또는 세로거리 구하기 => L
+    mn = n
     for i in range(n):
         for j in range(n):
-            if -11 < arr[i][j] <=-1:
-                min_len = min(min_len, max(abs(ex-i),abs(ey-j)))
-    #2.그 짧은 거리에서 사람과 탈출구가 있니?
-    for si in range(n-min_len):
-        for sj in range(n-min_len):
-            if si<=ex<=si+min_len and sj<=ey<=sj+min_len:
-                for i in range(si, si+min_len+1):
-                    for j in range(sj, sj+min_len+1):
-                        if -11 < arr[i][j] < 0:
-                            return si,sj,min_len+1
+            if -11<arr[i][j]<0:     # 사람인 경우
+                mn=min(mn, max(abs(ei-i), abs(ej-j)))
+
+    # [2] (0,0)부터 순회하면서 길이 L인 정사각형에 비상구와 사람있는지 체크 => 리턴 L+1
+    for si in range(n-mn):
+        for sj in range(n-mn):                  # 가능한 모든 시작위치
+            if si<=ei<=si+mn and sj<=ej<=sj+mn: # 비상구가 포함된 사각형!
+                for i in range(si, si+mn+1):
+                    for j in range(sj, sj+mn+1):
+                        if -11<arr[i][j]<0:     # 사람인 경우 리턴!
+                            return si,sj,mn+1
 
 def find_exit():
     for i in range(n):
@@ -67,12 +65,12 @@ for _ in range(K):
     if cnt == 0:
         break
 
-    a,b,lens = find_square(arr)
+    a,b,lenz = find_square(arr)
 
     tmp = [x[:] for x in arr]
-    for i in range(lens):
-        for j in range(lens):
-            tmp[a+i][b+j] = arr[a+lens-1-j][b+i]
+    for i in range(lenz):
+        for j in range(lenz):
+            tmp[a+i][b+j] = arr[a+lenz-1-j][b+i]
             if tmp[a+i][b+j] > 0:
                 tmp[a+i][b+j] -=1
     
