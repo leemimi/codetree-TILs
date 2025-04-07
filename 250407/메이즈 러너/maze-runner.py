@@ -3,7 +3,7 @@ n,m,K = map(int, input().split())
 arr = [list(map(int, input().split()))for _ in range(n)]
 answer = 0
 cnt = m
-for _ in range(M):
+for _ in range(m):
     i, j = map(lambda x:int(x)-1, input().split())
     arr[i][j]-=1 
 #좌표 맞춰주기
