@@ -59,8 +59,9 @@ for turn in range(1,K+1):
     
     max_cnt = 0
     for t in range(1,4):
-        for i in range(3):
-            for j in range(3):
+        #열부터 가장 작은 방법
+        for j in range(3):
+            for i in range(3):
                 tmp = [x[:]for x in arr]
                 #회전 하기 90,,,
                 for _ in range(t):
