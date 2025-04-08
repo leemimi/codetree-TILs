@@ -6,7 +6,7 @@ def turns(narr, ci,cj):
     tmp = [x[:]for x in narr]
     for i in range(3):
         for j in range(3):
-            tmp[ci+i][cj+j] = arr[ci+3-j-1][cj+i]
+            tmp[ci+i][cj+j] = narr[ci+3-j-1][cj+i]
     return tmp
 
 def bfs(arr,visited,x,y,flag):
