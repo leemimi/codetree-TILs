@@ -1,7 +1,4 @@
-from collections import deque
-K,M = map(int, input().split())
-arr = [list(map(int, input().split()))for _ in range(5)]
-nums = list(map(int, input().split())) #유물조각 번호
+
 dx = [0,0,-1,1]
 dy = [1,-1,0,0]
 
@@ -53,7 +50,10 @@ def count_value(arr, flag):
 
     return cnt
 
-
+from collections import deque
+K,M = map(int, input().split())
+arr = [list(map(int, input().split()))for _ in range(5)]
+nums = list(map(int, input().split())) #유물조각 번호
 
 answer = []
 for turn in range(K):
