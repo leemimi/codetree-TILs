@@ -4,11 +4,12 @@ arr = [list(map(int, input().split()))for _ in range(5)]
 nums = list(map(int, input().split())) #유물조각 번호
 dx = [0,0,-1,1]
 dy = [1,-1,0,0]
+
 def turns(narr, ci,cj):
     tmp = [x[:]for x in narr]
     for i in range(3):
         for j in range(3):
-            tmp[i+ci][cj+j] = arr[ci+3-j-1][cj+i]
+            tmp[ci+i][cj+j] = arr[ci+3-j-1][cj+i]
     return tmp
 
 def bfs(arr,visited,x,y,flag):
@@ -34,8 +35,8 @@ def bfs(arr,visited,x,y,flag):
                 cnt+=1
     if cnt>=3:
         if flag == 1:
-            for i,j in vset:
-                arr[i][j] = 0
+            for vi,vj in vset:
+                arr[vi][vj] = 0
         return cnt
     else:
         return 0
@@ -55,7 +56,7 @@ def count_value(arr, flag):
 
 
 answer = []
-for turn in range(1,K+1):
+for turn in range(K):
     
     max_cnt = 0
     for t in range(1,4):
