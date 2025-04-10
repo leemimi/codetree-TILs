@@ -18,8 +18,8 @@ def find_2d_end():
                 return i,j
 
 def find_3d_base():
-    for i in range(m):
-        for j in range(m):
+    for i in range(n):
+        for j in range(n):
             if arr[i][j] == 3:
                 return i,j
 def find_out():
