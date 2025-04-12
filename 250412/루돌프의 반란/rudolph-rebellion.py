@@ -46,6 +46,7 @@ for turn in range(1,M+1):
         break
     
     mn = 2*N*2
+    mlst = []
     #[1] 루돌프 이동
     #산타에서 가까운 거리 찾기
     for idx in range(1,P+1):
